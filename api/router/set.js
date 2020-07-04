@@ -8,7 +8,6 @@ router.get('/getallset/:fac_id', controller.getAllSet)
 router.get('/deleteset/:fac_id/:set_id', controller.deleteSet)
 router.get('/getset/:set_id', controller.getSet)
 
-router.post('/addallcontentinset/:re_id/:fac_id', controller.addAllContentInSet)
 router.post('/addsomecontentinset/:re_id/:fac_id', controller.addSomeContentInSet)
 router.post('/addnewcontentinset/:re_id/:fac_id', controller.addNewContentInSet)
 router.post('/editnewcontentinset/:re_id/:fac_id/:set_id', controller.editNewContentInSet)

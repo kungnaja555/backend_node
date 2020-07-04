@@ -8,4 +8,8 @@ router.get('/getallrehearsal', controller.getAllRehearsal)
 router.get('/deleterehearsal/:id', controller.deleteRehearsal)
 router.get('/getrehearsal/:id', controller.getRehearsal)
 
+
+router.get('/reportname/:re_id',controller.reportName)
+router.get('/report/:re_id',controller.report)
+
 module.exports = router

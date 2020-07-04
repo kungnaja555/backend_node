@@ -46,22 +46,6 @@ module.exports = {
         var sets = await Set.find({ faculty: req.params.fac_id, 'contents.years': rehearsal.years, 'contents.rehearsal': { $ne: req.params.re_id } })
         res.json({ mysets: mysets, sets: sets })
     },
-    addAllContentInSet: async (req, res) => {
-        var rehearsal = await Rehearsal.findById(req.params.re_id)
-        var sets = await Set.find({ faculty: req.params.fac_id, 'contents.years': rehearsal.years, 'contents.rehearsal': { $ne: req.params.re_id } })
-
-        for (var i = 0; i < sets.length; i++) {
-            var content = sets[i].contents.find(el => el.rehearsal == null)
-            var obj = { name: '', years: '', rehearsal: '' }
-            obj.name = content.name
-            obj.years = content.years
-            obj.rehearsal = req.params.re_id
-            sets[i].contents.push(obj)
-            await sets[i].save()
-        }
-
-        res.redirect(`/set/getsetsbyfaculty/${req.params.re_id}/${req.params.fac_id}`)
-    },
     addSomeContentInSet: async (req, res) => {
         var sets = req.body.form.sets
 

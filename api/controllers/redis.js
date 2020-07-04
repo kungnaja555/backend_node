@@ -20,9 +20,13 @@ module.exports = {
             res.json(result)
         })
     },
-    getAvg: async (req, res) => {
-        client.get('avg', (err, result) => {
+    getUrl: async (req, res) => {
+        client.get('url', (err, result) => {
             res.json(result)
         })
-    }
+    },
+    setUrl: (req, res) => {
+        client.set('url', req.body.url)
+        res.redirect('/redis/geturl')
+    },
 }
