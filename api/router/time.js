@@ -10,5 +10,6 @@ router.get('/searchtime/:start/:end', controller.searchTime)
 router.get('/movetimeout/:re_id/:set_id/:time_id', controller.moveTimeOut)
 router.get('/gettimeforreport/:re_id/:set_id', controller.getTimeForReport)
 router.get('/gettimeforavg', controller.getTimeForAvg)
+router.get('/cleartimeall', controller.clearTimeAll)
 
 module.exports = router

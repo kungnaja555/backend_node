@@ -9,13 +9,6 @@ module.exports = {
         res.redirect('/time/getalltimes')
     },
     getAllTimes: async (req, res) => {
-        // var start = new Date()
-        // start.setHours(0, 0, 0, 0)
-
-        // var end = new Date()
-        // end.setDate(start.getDate() + 1);
-        // end.setHours(0, 0, 0, 0)
-
         var times = await Timestamp.find({ set: null }).sort({ time: 1 })
         res.json(times)
     },
@@ -72,5 +65,9 @@ module.exports = {
             res.json({ amount: 0 })
         }
 
+    },
+    clearTimeAll: async (req,res) => {
+        await Timestamp.deleteMany({ set: null })
+        res.redirect('/time/getalltimes')
     }
 }
